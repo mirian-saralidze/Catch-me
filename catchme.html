@@ -41,7 +41,7 @@
 </head>
 <body>
   <div id="game-container">
-    <button id="move-button" onmouseover="moveButton()" onclick="openLink()">Catch Me!</button>
+    <button id="move-button" onmouseover="moveButton()" onclick="playVideo()">Catch Me!</button>
   </div>
 
   <script>
@@ -65,10 +65,21 @@
         button.style.top = newY + 'px';
       }, -20); // 100 milliseconds delay
     }
-    function openLink() {
-      window.location.href = 'https://www.youtube.com/watch?v=dQw4w9WgXcQ&pp=ygUJcmljayByb2xs';
-    }
 
+    function playVideo() {
+      // Create a video element
+      const video = document.createElement('video');
+      video.src = 'lv_0_20240115211213.mp4'; // Replace with your video URL
+      video.controls = true;
+      video.autoplay = true;
+
+      // Append the video element to the body
+      document.body.appendChild(video);
+
+      // Hide the button
+      const button = document.getElementById('move-button');
+      button.style.display = 'none';
+    }
   </script>
 </body>
 </html>
