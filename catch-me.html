@@ -14,7 +14,7 @@
     #game-container {
       margin: 50px auto;
       position: relative;
-      height: 500px;
+      height: 300px;
     }
 
     #move-button {
@@ -34,8 +34,8 @@
       padding: 10px;
       font-size: 16px;
       cursor: pointer;
-      transition: 0.2s;
-      box-shadow: 0px 0px 18px  rgb(0, 183, 255);
+      transition: 0.4s;
+      box-shadow: 0px 0px 15px  rgb(0, 183, 255);
      }
   </style>
 </head>
@@ -63,7 +63,7 @@
       setTimeout(() => {
         button.style.left = newX + 'px';
         button.style.top = newY + 'px';
-      }, -20); // 100 milliseconds delay
+      }, 10); // 10 milliseconds delay
     }
 
     function playVideo() {
@@ -72,7 +72,7 @@
       video.src = 'lv_0_20240115211213.mp4'; // Replace with your video URL
       video.controls = true;
       video.autoplay = true;
-      video.style.height = '300px'; // Set the height of the video
+      video.style.height = '700PX'; // Set the height of the video to 100%
 
       // Append the video element to the body
       document.body.appendChild(video);
@@ -80,6 +80,17 @@
       // Hide the button
       const button = document.getElementById('move-button');
       button.style.display = 'none';
+
+      // Request fullscreen
+      if (video.requestFullscreen) {
+        video.requestFullscreen();
+      } else if (video.mozRequestFullScreen) {
+        video.mozRequestFullScreen();
+      } else if (video.webkitRequestFullscreen) {
+        video.webkitRequestFullscreen();
+      } else if (video.msRequestFullscreen) {
+        video.msRequestFullscreen();
+      }
     }
   </script>
 </body>
